@@ -28,15 +28,15 @@ def main():
         world.set_weather(weather)
 
         # create the ego vehicle
-        ego_vehicle_bp = blueprint_library.find('vehicle.mercedes-benz.coupe')
+        ego_vehicle_bp = blueprint_library.find('walker.pedestrian.0001')
         # black color
-        ego_vehicle_bp.set_attribute('color', '0, 0, 0')
+        ego_vehicle_bp.set_attribute('speed', '3')
         # get a random valid occupation in the world
         transform = random.choice(world.get_map().get_spawn_points())
         # spawn the vehilce
         ego_vehicle = world.spawn_actor(ego_vehicle_bp, transform)
         # set the vehicle autopilot mode
-        ego_vehicle.set_autopilot(True)
+        # ego_vehicle.set_autopilot(True)
 
         # collect all actors to destroy when we quit the script
         actor_list.append(ego_vehicle)
